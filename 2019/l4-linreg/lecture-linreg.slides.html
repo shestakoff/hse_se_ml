@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>lecture-linreg-v04 slides</title>
+<title>lecture-linreg-v05 slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13253,7 +13253,7 @@ a.anchor-link {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -13268,7 +13268,7 @@ a.anchor-link {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13336,7 +13336,7 @@ a.anchor-link {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_auto</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/accord_sedan_training.csv&#39;</span><span class="p">)</span>
@@ -13351,7 +13351,7 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Regression-2">Regression 2<a class="anchor-link" href="#Regression-2">&#182;</a></h2><center><img src='img/example1.png' width=700></center><ul>
+<h2 id="Example:-flat-prices">Example: flat prices<a class="anchor-link" href="#Example:-flat-prices">&#182;</a></h2><center><img src='img/example1.png' width=700></center><ul>
 <li>Obviously, those characteristics somehow relate with price ($f: X \rightarrow Y$)</li>
 <li>Formalize a model to predict flat price: 
   $$a(x) = a(total\_area, nmbr\_of\_bedrooms, house\_age) = \hat{y}$$</li>
@@ -13372,7 +13372,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_auto</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;mileage&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">)</span>
@@ -13388,13 +13388,13 @@ a.anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[17]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x113dbefd0&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x109dafc88&gt;</pre>
 </div>
 
 </div>
@@ -13429,7 +13429,7 @@ $$f(x_{n}, \beta) = \hat{y}_{n} = \beta_0 + \beta_1x_{n}^1 + \dots$$</li>
 <li>$x_{n}^0 = 1$ $\forall n$ - intercept</li>
 <li>Need to estimate $\beta_i$.</li>
 </ul>
-<p>Ordinary Lears Squares:
+<p>Ordinary Least Squares:
 $$ L(\beta_0,\beta_1,\dots) = \frac{1}{2N}\sum^{N}_{n=1}(\hat{y}_{n} - y_{n})^2 = \frac{1}{2N}\sum^{N}_{n=1}\left(\sum_{d=0}^{D}\beta_{d}x_{n}^{d}-y_{n}\right)^{2}  \rightarrow \min\limits_{\beta} $$</p>
 
 </div>
@@ -13622,7 +13622,7 @@ $$<ul>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sq_loss_demo</span><span class="p">()</span>
@@ -13671,7 +13671,7 @@ $$ f'(x_0) = \lim\limits_{h \rightarrow 0}\frac{f(x_0+h) - f(x_0)}{h}$$</p>
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">deriv_demo</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">x0</span><span class="p">):</span>
@@ -13708,7 +13708,7 @@ $$ f'(x_0) = \lim\limits_{h \rightarrow 0}\frac{f(x_0+h) - f(x_0)}{h}$$</p>
 </aside></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">deriv_demo</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.005</span><span class="p">),</span> <span class="n">x0</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">step</span><span class="o">=.</span><span class="mi">2</span><span class="p">))</span>
@@ -13732,13 +13732,13 @@ $$ f'(x_0) = \lim\limits_{h \rightarrow 0}\frac{f(x_0+h) - f(x_0)}{h}$$</p>
 
  
  
-<div id="f052df7c-629d-4173-8052-f5a5952b7802"></div>
+<div id="7f2834f5-d30b-4512-af0e-adc8b7dc89ba"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#f052df7c-629d-4173-8052-f5a5952b7802');
+var element = $('#7f2834f5-d30b-4512-af0e-adc8b7dc89ba');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "52fc586a0a32478a868bf890dfcae2f8", "version_major": 2, "version_minor": 0}
+{"model_id": "3eb21f9f29e5402cb53fa91631c55da2", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -13746,7 +13746,7 @@ var element = $('#f052df7c-629d-4173-8052-f5a5952b7802');
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[27]:</div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
 
@@ -13849,7 +13849,7 @@ $$ \beta := \beta - \alpha\nabla_{\beta}L(\beta)$$<ul>
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="k">import</span> <span class="n">shuffle</span>
@@ -14006,7 +14006,7 @@ $$ \beta := \beta - \alpha\nabla_{\beta}L(\beta)$$<ul>
 </aside></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">grad_demo</span><span class="p">(</span><span class="n">iters</span><span class="o">=</span><span class="mi">105</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.08</span><span class="p">)</span>
@@ -14102,7 +14102,7 @@ $$ \beta := \beta - \alpha\nabla_{\beta}L(\beta)$$<ul>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stoch_grad_demo</span><span class="p">(</span><span class="n">iters</span><span class="o">=</span><span class="mi">105</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.08</span><span class="p">)</span>
@@ -14224,7 +14224,7 @@ regression remain.</p>
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">demo_weights</span><span class="p">():</span>
@@ -14252,7 +14252,7 @@ regression remain.</p>
 </aside></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">demo_weights</span><span class="p">()</span>
@@ -14284,284 +14284,6 @@ regression remain.</p>
 </div>
 </div>
 
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Regularization-&amp;-restrictions">Regularization &amp; restrictions<a class="anchor-link" href="#Regularization-&amp;-restrictions">&#182;</a></h1>
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Intuition">Intuition<a class="anchor-link" href="#Intuition">&#182;</a></h2><p><center><img src=http://www.holehouse.org/mlclass/10_Advice_for_applying_machine_learning_files/Image%20[8].png></center>
-[Andrew's Ng Machine Learning Class - Stanford]</p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Regularization">Regularization<a class="anchor-link" href="#Regularization">&#182;</a></h2><ul>
-<li>Insert additional requirement for regularizer $R(\beta)$ to be small:
-$$
-\sum_{n=1}^{N}\left(x_{n}^{T}\beta-y_{n}\right)^{2}+\lambda R(\beta)\to\min_{\beta}
-$$</li>
-<li>$\lambda&gt;0$ - hyperparameter.</li>
-<li>$R(\beta)$ penalizes complexity of models.
-$$
-\begin{array}{ll}
-R(\beta)=||\beta||_{1} &amp; \mbox{Lasso regression}\\
-R(\beta)=||\beta||_{2}^{2} &amp; \text{Ridge regression}
-\end{array}
-$$</li>
-</ul>
-<ul>
-<li>Not only <strong>accuracy</strong> matters for the solution but also <strong>model simplicity</strong>!</li>
-<li>$\lambda$ controls complexity of the model:$\uparrow\lambda\Leftrightarrow\text{complexity}$$\downarrow$.</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Comments">Comments<a class="anchor-link" href="#Comments">&#182;</a></h2><ul>
-<li><p>Dependency of $\beta$ from $\lambda$ for ridge (A) and LASSO (B):</p>
-<center><img src="img/regularization paths.png"></center></li>
-<li><p>LASSO can be used for automatic feature selection.</p>
-</li>
-<li>$\lambda$ is usually found using cross-validation on exponential grid, e.g. $[10^{-6},10^{-5},...10^{5},10^{6}]$.</li>
-<li>It's always recommended to use regularization because <ul>
-<li>it gives smooth control over model complexity.</li>
-<li>reduces ambiguity for multiple solutions case.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<center><img src=img/regul.jpg></center>
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="ElasticNet">ElasticNet<a class="anchor-link" href="#ElasticNet">&#182;</a></h2><ul>
-<li>ElasticNet:</li>
-</ul>
-$$
-R(\beta)=\alpha||\beta||_{1}+(1-\alpha)||\beta||_{2}^{2}\to\min_{\beta}
-$$<p>$\alpha\in(0,1)$ - hyperparameter, controlling impact of each part.</p>
-<ul>
-<li>If two features $x^{i}$and $x^{j}$ are equal: <ul>
-<li>LASSO may take only one of them</li>
-<li>Ridge will take both with equal weight<ul>
-<li>but it doesn't remove useless features</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>ElasticNet both removes useless features but gives equal weight for usefull equal features<ul>
-<li>good, because feature equality may be due to chance on this particular training set</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Ridge-regression-analytic-solution">Ridge regression analytic solution<a class="anchor-link" href="#Ridge-regression-analytic-solution">&#182;</a></h2><p>Ridge regression criterion
-$$
-\sum_{n=1}^{N}\left(x_{n}^{T}\beta-y_{n}\right)^{2}+\lambda\beta^{T}\beta\to\min_{\beta}
-$$</p>
-<p>Stationarity condition can be written as:</p>
-$$
-\begin{gathered}2\sum_{n=1}^{N}x_{n}\left(x_{n}^{T}\beta-y_{n}\right)+2\lambda\beta=0\\
-2X^{T}(X\beta-y)+\lambda\beta=0\\
-\left(X^{T}X+\lambda I\right)\beta=X^{T}y
-\end{gathered}
-$$<p>so</p>
-$$
-\widehat{\beta}=(X^{T}X+\lambda I)^{-1}X^{T}y
-$$
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Comments">Comments<a class="anchor-link" href="#Comments">&#182;</a></h2><ul>
-<li>$X^{T}X+\lambda I$ is always non-degenerate as a sum of: <ul>
-<li>non-negative definite $X^{T}X$</li>
-<li>positive definite $\lambda I$</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Intuition:<ul>
-<li>out of all valid solutions select one giving simplest model</li>
-</ul>
-</li>
-<li>Other regularizations also restrict the set of solutions.</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Different-account-for-different-features">Different account for different features<a class="anchor-link" href="#Different-account-for-different-features">&#182;</a></h2><ul>
-<li>Traditional approach regularizes all features uniformly:
-$$
-\sum_{n=1}^{N}\left(x_{n}^{T}\beta-y_{n}\right)^{2}+\lambda R(\beta)\to\min_{w}
-$$</li>
-<li>Suppose we have $K$ groups of features with indices:
-$$
-I_{1},I_{2},...I_{K}
-$$</li>
-<li>We may control the impact of each group on the model by:
-$$
-\sum_{n=1}^{N}\left(x_{n}^{T}\beta-y_{n}\right)^{2}+\lambda_{1}R(\{\beta_{i}|i\in I_{1}\})+...+\lambda_{K}R(\{\beta_{i}|i\in I_{K}\})\to\min_{w}
-$$</li>
-<li>$\lambda_{1},\lambda_{2},...\lambda_{K}$ can be set using cross-validation</li>
-<li>In practice use common regularizer but with different feature scaling.</li>
-</ul>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Different-loss-functions">Different loss-functions<a class="anchor-link" href="#Different-loss-functions">&#182;</a></h1>
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Idea">Idea<a class="anchor-link" href="#Idea">&#182;</a></h2><ul>
-<li>Generalize squared to arbitrary loss:
-$$
-\sum_{n=1}^{N}\left(x^{T}\beta-y_{n}\right)^{2}\to\min_{\beta}\qquad\Longrightarrow\qquad\sum_{n=1}^{N}\mathcal{L}(x_{n}^{T}\beta-y_{n})\to\min_{\beta}
-$$</li>
-</ul>
-$$
-\begin{array}{lll}
-\textbf{LOSS} &amp; \textbf{NAME} &amp; \textbf{PROPERTIES}\\
-\mathcal{L}(\varepsilon)=\varepsilon^{2} &amp; \text{quadratic} &amp; \text{differentiable}\\
-\mathcal{L}(\varepsilon)=\left|\varepsilon\right| &amp; \text{absolute} &amp; \text{robust}\\
-\mathcal{L}(\varepsilon)=\begin{cases}
-\frac{1}{2}\varepsilon^{2}, &amp; \left|\varepsilon\right|\le\delta\\
-\delta\left(\left|\varepsilon\right|-\frac{1}{2}\delta\right) &amp; \left|\varepsilon\right|&gt;\delta
-\end{cases} &amp; \text{Huber} &amp; \text{differentiable, robust}
-\end{array}
-$$<ul>
-<li>Robust means solution is robust to outliers in the training set.</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<center><img src="img/Loss functions.png"></center>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Weighted-account-for-observations">Weighted account for observations<a class="anchor-link" href="#Weighted-account-for-observations">&#182;</a></h1>
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Weighted-account-for-observation">Weighted account for observation<a class="anchor-link" href="#Weighted-account-for-observation">&#182;</a></h2><p>Weighted account for observations
-$$
-\sum_{n=1}^{N}w_{n}(x_{n}^{T}\beta-y_{n})^{2}
-$$</p>
-<ul>
-<li>Weights may be:</li>
-<li>increased for incorrectly predicted objects <ul>
-<li>algorithm becomes more oriented on error correction</li>
-</ul>
-</li>
-<li>decreased for incorrectly predicted objects <ul>
-<li>they may be considered outliers that break our model</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Solution-for-weighted-regression">Solution for weighted regression<a class="anchor-link" href="#Solution-for-weighted-regression">&#182;</a></h2>$$
-\sum_{n=1}^{N}w_{n}\left(x_{n}^{T}\beta-y_{n}\right)^{2}\to\min_{\beta\in\mathbb{R}}
-$$<p>Stationarity condition:
-$$
-\sum_{n=1}^{N}w_{n}x_{n}^{d}\left(x_{n}^{T}\beta-y_{n}\right)=0
-$$</p>
-<p>Define $\{X\}_{n,d}=x_{n}^{d}$, $W=diag\{w_{1},...x_{N}\}$. Then</p>
-$$
-X^{T}W\left(X\beta-y\right)=0
-$$$$
-\beta=\left(X^{T}WX\right)^{-1}X^{T}Wy
-$$
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Robust-regression">Robust regression<a class="anchor-link" href="#Robust-regression">&#182;</a></h2><ul>
-<li><p>Initialize $w_{1}=...=w_{N}=1/N$</p>
-</li>
-<li><p>Repeat:</p>
-<ul>
-<li>estimate regression $\widehat{y}(x)$ using observations $(x_{i},y_{i})$ with weights $w_{i}$.</li>
-<li>for each $i=1,2,...N$:<ul>
-<li>re-estimate $\varepsilon_{i}=\widehat{y}(x_{i})-y_{i}$</li>
-<li>recalculate $w_{i}=K\left(\left|\varepsilon_{i}\right|\right)$ </li>
-</ul>
-</li>
-<li>normalize weights $w_{i}=\frac{w_{i}}{\sum_{n=1}^{N}w_{n}}$</li>
-</ul>
-</li>
-</ul>
-<p><strong>Comments:</strong> $K(\cdot)$ is some <em>decreasing</em> function, repetition may be</p>
-
-<pre><code>* predefined number of times
-* until convergence of model parameters.</code></pre>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h2><center><img src="img/data with outliers.png"></center>
-</div>
-</div>
 </div></section></section>
 </div>
 </div>
