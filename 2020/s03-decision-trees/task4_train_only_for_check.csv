@@ -1,0 +1,15 @@
+cat1	cat2	y
+True	Mon	3
+False	Wen	4    
+False	Fri	3
+False	Sat	2    
+True	Sat	1
+True	Thu	5
+False	Thu	2
+True	Mon	4
+False	Mon	2
+False	Thu	2
+False	Tue	5
+True	Wen	4
+True	Sat	3
+False	Sun	1
