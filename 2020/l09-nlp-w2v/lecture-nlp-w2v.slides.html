@@ -9,14 +9,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>lecture-nlp-w2v-v02 slides</title>
+<title>lecture-nlp-w2v slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="../../reveal.js/css/reveal.css">
-<link rel="stylesheet" href="../../reveal.js/css/theme/serif.css" id="theme">
+<link rel="stylesheet" href="../../reveal.js/css/theme/simple.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -13412,7 +13412,7 @@ $$<ul>
 </li>
 </ul>
 $$ p(o|c) = \frac{\exp(u_o^\top v_c)}{\sum\limits_{w\in V} \exp(u_w^\top v_c)} \leftarrow \text{softmax!!}$$<p>and our objective transformes to
-$$L(u,v) = -\sum_{(o,c)} \left(\exp(u_o^\top v_c) - \log\left(\sum\limits_{w\in V} \exp(u_w^\top v_c)\right)\right) \rightarrow \min\limits_{u,v}$$</p>
+$$L(u,v) = -\sum_{(o,c)} \left(u_o^\top v_c - \log\left(\sum\limits_{w\in V} \exp(u_w^\top v_c)\right)\right) \rightarrow \min\limits_{u,v}$$</p>
 <ul>
 <li>Need to calculated last term more efficiently!</li>
 </ul>
@@ -13425,7 +13425,7 @@ $$L(u,v) = -\sum_{(o,c)} \left(\exp(u_o^\top v_c) - \log\left(\sum\limits_{w\in 
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Negative-sampling">Negative sampling<a class="anchor-link" href="#Negative-sampling">&#182;</a></h2><ul>
 <li>With given corpus we can mark pairs of words $(o,c)\in D$ as observed (positive class) ...</li>
-<li>and randomly generate unobserved pairs of words $(o,c`)\notin D$ (negative class)<center><img src='img/w2v_window.png'></center></li>
+<li>and randomly generate unobserved pairs of words $(o`,c)\notin D$ (negative class)<center><img src='img/w2v_window.png'></center></li>
 </ul>
 
 </div>
@@ -13440,32 +13440,13 @@ $$ p(o|c) = \sigma(u_o^\top v_c)$$</li>
 </ul>
 $$
 \begin{align*}
-L(u,v) &amp;= -\prod_{(o,c)\in D}p(o|c) \prod_{(o,c`)\notin D}(1-p(o|c`))  = \\
-       &amp;= -\sum_{(o,c)\in D}\log p(o|c) - \sum_{(o,c`)\notin D}\log (1- p(o|c`)) =  \\
-       &amp;= -\sum_{(o,c)\in D}\log \sigma(u_o^\top v_c) - \sum_{(o,c`)\notin D}\log \sigma(-u_{o}^\top v_{c`}) \rightarrow \min\limits_{u,v}
+L(u,v) &amp;= -\prod_{(o,c)\in D}p(o|c) \prod_{(o`,c)\notin D}(1-p(o`|c))  = \\
+       &amp;= -\sum_{(o,c)\in D}\log p(o|c) - \sum_{(o`,c)\notin D}\log (1- p(o`|c)) =  \\
+       &amp;= -\sum_{(o,c)\in D}\log \sigma(u_o^\top v_c) - \sum_{(o`,c)\notin D}\log \sigma(-u_{o`}^\top v_{c}) \rightarrow \min\limits_{u,v}
 \end{align*}
 $$<ul>
-<li>Specifically, for each $(o, c) \in D$ we construct $k$ samples $(o, c_1 ),\dots, (o, c_k)$, where each $c_j$ is drawn according to its unigram distribution to the power $3/4$</li>
-<li>Need to compute gradient updates for $u_o$, $v_c$ and $v_{c`}$</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-$$ L(u,v) = -\sum_{(o,c)\in D}\log \sigma(u_o^\top v_c) - \sum_{(o,c`)\notin D}\log \sigma(-u_{o}^\top v_{c`}) $$$$\begin{align*}
-\frac{\partial L}{\partial u_o} &amp;=  (\sigma(u_o^\top v_c) - 1) v_c +  \sum_{(o,c`)\notin D}\sigma(u_o^\top v_{c`}) v_{c`} \\
-\frac{\partial L}{\partial v_c} &amp;=  (\sigma(u_o^\top v_c) - 1) u_o \\
-\frac{\partial L}{\partial v_{c`}} &amp;=  \sigma(u_o^\top v_{c`}) u_o
-\end{align*}
-$$<ul>
-<li>output vectors options:<ul>
-<li>context vectors $v$</li>
-<li>$\frac{1}{2}(v+u)$</li>
-</ul>
-</li>
+<li>Specifically, for each $(o, c) \in D$ we construct $k$ samples $(o_1, c ),\dots, (o_k, c)$, where each $o_j$ is drawn according to its unigram distribution to the power $3/4$</li>
+<li>Need to compute gradient updates for $u_o$, $v_c$ and $u_{o`}$</li>
 </ul>
 
 </div>
