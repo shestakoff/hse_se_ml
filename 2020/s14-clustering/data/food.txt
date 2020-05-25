@@ -1,0 +1,28 @@
+"Name" "Energy" "Protein" "Fat" "Calcium" "Iron"
+"Braised beef" 340 20 28 9 2.6
+"Hamburger" 245 21 17 9 2.7
+"Roast beef" 420 15 39 7 2.0
+"Beefsteak" 375 19 32 9 2.6
+"Canned beef" 180 22 10 17 3.7
+"Broiled chicken" 115 20 3 8 1.4
+"Canned chicken" 170 25 7 12 1.5
+"Beef heart" 160 26 5 14 5.9
+"Roast lamb leg" 265 20 20 9 2.6
+"Roast lamb shoulder" 300 18 25 9 2.3
+"Smoked ham" 340 20 28 9 2.5
+"Pork roast" 340 19 29 9 2.5
+"Pork simmered" 355 19 30 9 2.4
+"Beef tongue" 205 18 14 7 2.5
+"Veal cutlet" 185 23 9 9 2.7
+"Baked bluefish" 135 22 4 25 0.6
+"Raw clams" 70 11 1 82 6.0
+"Canned clams" 45 7 1 74 5.4
+"Canned crabmeat" 90 14 2 38 0.8
+"Fried haddock" 135 16 5 15 0.5
+"Broiled mackerel" 200 19 13 5 1.0
+"Canned mackerel" 155 16 9 157 1.8
+"Fried perch" 195 16 11 14 1.3
+"Canned salmon" 120 17 5 159 0.7
+"Canned sardines" 180 22 9 367 2.5
+"Canned tuna" 170 25 7 7 1.2
+"Canned shrimp" 110 23 1 98 2.6
