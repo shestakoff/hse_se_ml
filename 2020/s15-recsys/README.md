@@ -1,1 +1,1 @@
-Clustering [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hushchyn-mikhail/hse_se_ml/blob/s15/2020/s15-recsys/seminar15-recsys.ipynb)
+ResSys [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hushchyn-mikhail/hse_se_ml/blob/s15/2020/s15-recsys/seminar15-recsys.ipynb)
